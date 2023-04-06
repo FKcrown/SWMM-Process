@@ -58,9 +58,9 @@ def main():
     thresh = 200  # 外部存档阀值
     LID_num = 53  # LID的个数
     # 存放着集水区与LID种类对应关系的csv文件的地址
-    csv_path = r"D:\学习\竞赛\swmm\优化值集合\SUBCATCHMENTS-LID.csv"
+    csv_path = r"..\pcswmm_file\SUBCATCHMENTS-LID.csv"
     # inp文件的地址
-    inp_path = r"D:\PythonProject\Image_recognition\SWMM\mopso-master\220629-zzmx.inp"
+    inp_path = r"..\pcswmm_file\220629-zzmx.inp"
     """
     存放着集水区，LID平方米单价的字典
     """
@@ -77,8 +77,8 @@ def main():
     """
     mopso_ = Mopso(particals, w, c1, c2, max_, min_, thresh, inp_path, csv_path, name_list, subcatchment_lid_price, mesh_div)  # 粒子群实例化
     pareto_in, pareto_fitness = mopso_.done(cycle_)  # 经过cycle_轮迭代后，pareto边界粒子
-    np.savetxt(os.path.join(r"D:\学习\竞赛\swmm\优化值集合", "pareto_in.txt"), pareto_in)  # 保存pareto边界粒子的坐标
-    np.savetxt(os.path.join(r"D:\学习\竞赛\swmm\优化值集合", "pareto_fitness.txt"), pareto_fitness)  # 打印pareto边界粒子的适应值
+    np.savetxt(os.path.join(r"..\优化值集合", "pareto_in.txt"), pareto_in)  # 保存pareto边界粒子的坐标
+    np.savetxt(os.path.join(r"..\优化值集合", "pareto_fitness.txt"), pareto_fitness)  # 打印pareto边界粒子的适应值
     print("\n", "pareto边界的坐标保存于：/img_txt/pareto_in.txt")
     print("pareto边界的适应值保存于：/img_txt/pareto_fitness.txt")
     print("\n,迭代结束,over")
